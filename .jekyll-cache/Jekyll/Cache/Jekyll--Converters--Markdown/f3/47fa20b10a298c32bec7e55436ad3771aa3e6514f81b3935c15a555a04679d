@@ -1,0 +1,25 @@
+I",<p>1、数据类型转换</p>
+
+<p>(1)string 与 int</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="err">'</span><span class="mi">123</span><span class="err">'</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+
+<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1234</span><span class="o">;</span>
+<span class="n">string</span> <span class="n">s1</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>(2)char 与int</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="sc">'1'</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="nc">Character</span><span class="o">.</span><span class="na">character</span><span class="o">.</span><span class="na">getnumericvalue</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+:ET

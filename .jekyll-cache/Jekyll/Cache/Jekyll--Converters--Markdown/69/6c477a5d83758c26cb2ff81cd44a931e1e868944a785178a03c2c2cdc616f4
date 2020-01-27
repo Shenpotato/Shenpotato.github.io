@@ -1,0 +1,77 @@
+I"<p>记录python中numpy库的基本用法。</p>
+
+<h1 id="numpy的基本用法">Numpy的基本用法</h1>
+
+<p>Numpy的中文网站：https://www.numpy.org.cn/</p>
+
+<p>import numpy as np</p>
+
+<h2 id="一数组创建">一、数组创建</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>  <span class="o">//</span><span class="err">创建</span><span class="mi">0</span><span class="err">为元素的</span><span class="n">m</span><span class="o">*</span><span class="n">n</span><span class="err">维数组</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>   <span class="o">//</span><span class="err">创建</span><span class="mi">1</span><span class="err">为元素的</span><span class="n">m</span><span class="o">*</span><span class="n">n</span><span class="err">维数组</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>		<span class="o">//</span><span class="err">创建一个指定元素的数组</span>
+
+<span class="n">np</span><span class="o">.</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span> 	<span class="o">//</span><span class="err">创建从</span><span class="mi">0</span><span class="err">开始，步长为</span><span class="mf">0.1</span><span class="err">，以</span><span class="mf">1.9</span><span class="err">结束的数组</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.</span> <span class="p">,</span><span class="mf">4.</span> <span class="p">,</span><span class="mi">6</span><span class="p">)</span>		<span class="o">//</span><span class="err">在</span><span class="mi">1</span><span class="o">-</span><span class="mi">4</span><span class="err">中，等步长的产生</span><span class="mi">6</span><span class="err">个元素，包含</span><span class="mi">1</span><span class="err">，</span><span class="mi">4</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span><span class="n">d2</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="n">dn</span><span class="p">)</span>  <span class="o">//</span><span class="err">创建</span><span class="n">n</span><span class="err">维数组，每个维度长度为</span><span class="n">di</span><span class="err">，数组值为</span><span class="mi">0</span><span class="o">-</span><span class="mi">1</span><span class="err">的任意值</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>		<span class="o">//</span> <span class="err">数组值服从正态分布</span>
+
+<span class="n">nprandom</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="err">’</span><span class="n">l</span><span class="err">’</span><span class="p">)</span>		<span class="o">//</span><span class="err">生成</span><span class="n">low</span><span class="o">-</span><span class="n">high</span><span class="err">区间的，</span><span class="n">size</span><span class="err">维度的随机数</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="o">//</span><span class="err">从</span><span class="n">a</span><span class="err">中选取元素组成</span><span class="n">size</span><span class="err">大小的数组</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="二数组操作">二、数组操作</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>
+<span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>		<span class="o">//</span><span class="err">将</span><span class="n">A</span><span class="err">数组转置</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">axis</span><span class="p">)</span>		<span class="o">//</span><span class="err">对数组</span><span class="n">A</span><span class="err">，寻找从维度</span><span class="n">axis</span><span class="err">上看，每个维度的最大值</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="1数组相乘">1、数组相乘</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>  <span class="o">//</span><span class="err">对数组进行叉乘，返回一个数组</span>
+<span class="n">A</span> <span class="o">*</span> <span class="n">B</span>   
+<span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>		<span class="o">//</span><span class="n">A</span> <span class="n">B</span><span class="err">数组中相同位置元素相乘</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>np.sum(A,axis = 0)		// A矩阵对每一列进行累加
+np.sum(A,axis = 1)		// A矩阵对每一行进行累加
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="三数组输出">三、数组输出</h2>
+
+:ET
