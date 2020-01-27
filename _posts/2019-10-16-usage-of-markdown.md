@@ -1,13 +1,13 @@
 ---
 layout: post
 title:  "Markdown 的基本使用"
-tags: markdown
+tags: Tools
 author: Shenpotato
-catelog: true
+catalog: true
 ---
 
 
-介绍了Markdown的一些基本用法
+> 介绍了Markdown的一些基本用法
 
 
 
@@ -57,7 +57,7 @@ catelog: true
 
 ## 三、引用
 
-###1. 基本引用
+### 1. 基本引用
 
 在文本前加上>
 
@@ -141,7 +141,7 @@ https://www.jianshu.com/p/05987743d27c
 
 
 
-##五、其他技巧
+## 五、其他技巧
 
 ### 1. 字体变化
 

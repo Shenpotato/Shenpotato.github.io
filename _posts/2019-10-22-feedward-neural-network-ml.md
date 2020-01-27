@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "机器学习-神经网络"
-tags: machinelearning logistic-regression softmax generative-model
+tags: MachineLearning
 author: Shenpotato
-catelog: true
+catalog: true
 ---
 
 

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "人工智能-马尔可夫决策网络与强化学习"
-tags: markove_desicion_process reinforcement_learning
+tags: ArtificialIntelligence
 author: Shenpotato
-catelog: true
+catalog: true
 ---
 
 

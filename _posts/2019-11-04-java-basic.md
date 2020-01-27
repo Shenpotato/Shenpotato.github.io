@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "java基础知识散记"
-tags: java
+tags: Java
 author: Shenpotato
-catelog: true
+catalog: true
 ---
 
 

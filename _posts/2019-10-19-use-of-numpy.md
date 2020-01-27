@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Numpy的基本用法"
-tags: numpy python
+tags: Python
 author: Shenpotato
-catelog: true
+catalog: true
 ---
 
 

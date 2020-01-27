@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "机器学习-线性回归"
-tags: machinelearning linear-regression polynomial-regression overfitting regularization
+tags: MachineLearning
 author: Shenpotato
-catelog: true
+catalog: true
 ---
 
 

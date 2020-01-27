@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "知识图谱推理-论文阅读笔记"
-tags: knowledge_graph_reasoning reinforcement_learning
+title: "论文阅读笔记-知识图谱推理"
+tags: PaperNote
 author: Shenpotato
-catelog: true
+catalog: true
 ---
 
 

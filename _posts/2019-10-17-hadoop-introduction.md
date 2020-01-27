@@ -3,7 +3,7 @@ layout: post
 title:  "Hadoop简介"
 tags: Hadoop
 author: Shenpotato
-catelog: true
+catalog: true
 ---
 
 

@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Jekyll 搭建本地博客运行环境"
-tags: jekyll RubyGems
+tags: Tools
 author: Shenpotato
-catelog: true
+catalog: true
 ---
 
 

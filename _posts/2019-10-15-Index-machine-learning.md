@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "机器学习相关链接"
-tags: machinelearning probabilitytheory linearregression classification neuralnetwork
+title: "机器学习-相关链接"
+tags: MachineLearning
 author: Shenpotato
-catelog: true
+catalog: true
 ---
 
 文章作为CSIT6000G Machine Learning课程的知识梳理记录。

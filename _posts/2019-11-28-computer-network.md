@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "计算机网络-链路层与网络层传输原理"
-tags: Intern
+tags: ComputerNetwork
 author: Shenpotato
-catelog: true
+catalog: true
 ---
 
 记录实习学习知识

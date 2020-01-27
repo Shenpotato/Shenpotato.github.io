@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "人工智能-归结推理"
-tags: knowledge_reasoning logic 
+tags: ArtificialIntelligence
 author: Shenpotato
-catelog: true
+catalog: true
 ---
 
 CSIT6000F Aritifical Intelligence 归结演绎推理

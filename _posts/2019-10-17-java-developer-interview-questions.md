@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "java面试常见208个问题"
-tags: java spring network design pattern  
+tags: Java  
 author: Shenpotato
-catelog: true
+catalog: true
 ---
 
 

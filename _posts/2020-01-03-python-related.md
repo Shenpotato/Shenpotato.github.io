@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "python相关"
-tags: python pip 
+tags: Python 
 author: Shenpotato
-catelog: true
+catalog: true
 ---
 
 

@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "pandas的基本用法"
-tags: pandas python
+tags: Python
 author: Shenpotato
-catelog: true
+catalog: true
 ---
 
 记录python中pandas的用法

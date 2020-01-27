@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "聚类算法"
-tags: cluster datamining
+tags: DataMining
 author: Shenpotato
-catelog: true
+catalog: true
 ---
 
 

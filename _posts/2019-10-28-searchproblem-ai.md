@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "人工智能-搜索问题"
-tags: 
+tags: ArtificialIntelligence
 author: Shenpotato
-catelog: true
+catalog: true
 ---
 
 

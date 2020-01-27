@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "机器学习-分类算法"
-tags: machinelearning logistic-regression softmax generative-model
+tags: MachineLearning
 author: Shenpotato
-catelog: true
+catalog: true
 ---
 
 CSIT6000G Machine Learning课程之分类算法L：
