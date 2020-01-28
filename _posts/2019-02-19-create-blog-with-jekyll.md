@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Jekyll 搭建本地博客运行环境"
+title:  "Jekyll搭建本地博客运行环境"
 tags: Tools
 author: Shenpotato
 catalog: true
@@ -145,6 +145,5 @@ Installing ri documentation for hitimes-1.2.1
 Done installing documentation for hitimes after 1 seconds
 1 gem installed
 ```
-
 
 关于，[hitimes](https://rubygems.org/gems/hitimes/versions/1.2.2) 是一个快速的高效的定时器解决方案库，详情可以去官网查看。
