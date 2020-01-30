@@ -20,7 +20,7 @@ catalog: true
 
 云服务器上改操作系统是非常方便的，直接在云服务器的控制台中修改实例操作系统为centos7的linux系统。
 
-在mac上的iterm2上直接通过`ssh root@129.204.85.46`访问云服务器
+在mac上的iterm2上直接通过`ssh root@129.204.85.46`访问云服务器，通过`logout`断开ssh与服务器的连接。
 
 
 
