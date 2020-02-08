@@ -8,11 +8,9 @@ catalog: true
 
 
 
-此文章是对CSIT6000F Artificial Intelligence的记录，包含：
-
-1. 马尔可夫决策模型的思想
-2. 强化学习的思想
-3. 两者的比较
+> 此文章是对CSIT6000F Artificial Intelligence的记录
+>
+> 包含：马尔可夫决策模型的思想，强化学习的思想和两者的比较
 
 
 

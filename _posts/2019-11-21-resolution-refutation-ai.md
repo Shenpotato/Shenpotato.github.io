@@ -6,7 +6,9 @@ author: Shenpotato
 catalog: true
 ---
 
-CSIT6000F Aritifical Intelligence 归结演绎推理
+
+
+> CSIT6000F Aritifical Intelligence 归结演绎推理
 
 
 

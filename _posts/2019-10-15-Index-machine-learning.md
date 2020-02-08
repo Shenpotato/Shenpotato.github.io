@@ -6,7 +6,9 @@ author: Shenpotato
 catalog: true
 ---
 
-文章作为CSIT6000G Machine Learning课程的知识梳理记录。
+
+
+> 文章作为CSIT6000G Machine Learning课程的知识梳理记录。
 
 
 

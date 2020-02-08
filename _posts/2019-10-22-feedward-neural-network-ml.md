@@ -7,7 +7,8 @@ catalog: true
 ---
 
 
-CSIT6000G Machine Learning课程之深度学习下的神经网络：
+
+> CSIT6000G Machine Learning课程之深度学习下的神经网络：
 
 ## 一、
 

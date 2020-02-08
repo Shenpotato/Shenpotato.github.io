@@ -7,7 +7,10 @@ catalog: true
 ---
 
 
-记录python中numpy库的基本用法。
+
+> 记录python中numpy库的基本用法。
+
+
 
 # Numpy的基本用法
 
