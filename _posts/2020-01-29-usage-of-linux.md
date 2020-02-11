@@ -10,6 +10,8 @@ catalog: true
 
 > 最近将腾讯云服务器上的操作系统换成了centos的linux系统，因此，这篇文章主要记录了腾讯云服务器的相关使用以及linux的相关使用。
 
+(菜鸟教程链接)[https://www.runoob.com/linux/linux-tutorial.html]
+
 
 
 ## 一、腾讯云服务器
@@ -42,6 +44,9 @@ ifconfig / ip addr			#查看网路配置相关信息
 ping webaddress					#查看网络联通性
 
 /etc/sysconfig/network-scripts		#网络配置文件的位置
+
+netstat -anp						#查看所有的网络服务
+netstat -anp | grep java					#查看服务名为java的服务信息
 ```
 
 
@@ -83,6 +88,8 @@ ping webaddress					#查看网络联通性
 - /findword：在文档中查找某个字付（串），回车查找，输入n查找下一个
 - set nu：显示文件行号；set nonu：取消显示文件行号
 
+![](https://tva1.sinaimg.cn/large/0082zybpgy1gbskvx8231j314s0u0qb8.jpg)
+
 
 
 #### 2.2 文件操作
@@ -106,11 +113,12 @@ history	[number]					#展示之前使用过的命令
 ```
 cd 												#切换到指定目录
 cd ../										#转移到上层目录
+cd ~											#切换到底层目录
 ```
 
 
 
-##### 2.2.3 创建操作
+##### 2.2.3 创建&删除操作
 
 ```
 mkdir [option] [dir]			#创建目录
@@ -123,7 +131,7 @@ touch [filename.xxx]			#创建空文件，可以同时创建多个
 
 
 
-##### 2.2.4 拷贝/移动操作
+##### 2.2.4 拷贝&移动操作
 
 ```
 cp [option] [file/dir] [dirpath]			#拷贝文件到指定目录
@@ -214,6 +222,72 @@ tar -zxvf test.tar.gz -C /test/		#解压到指定位置，目录必须存在
 ```
 
 ![](https://tva1.sinaimg.cn/large/006tNbRwgy1gbmu978k9vj30io05yjro.jpg)
+
+
+
+##### 2.2.9 文件所有者&用户组修改
+
+```
+chown username filename						#修改文件的属主用户 
+
+chgrp groupname filename					#修改文件所属用户组
+```
+
+
+
+#### 2.3 权限管理
+
+##### 2.3.1 权限介绍
+
+![](https://tva1.sinaimg.cn/large/0082zybpgy1gbs95tbni6j30qe06u0tl.jpg)
+
+**第一串字符串：**
+
+- 0位表示文件类型（d：目录，-：文件，l：软链接，c：字符设备，b：块文件，硬盘）
+- 1-3位表示文件所有者的权限
+- 4-6位表示文件所属用户组所拥有的权限
+- 7-9位表示其他用户的权限
+
+**第二串字符串：**如果是文件，表示硬链接的数目；如果是目录，则表示子目录的数目
+
+**第三，四串字符串：**所属用户和用户组
+
+**第五串字符串：**如果是文件，表示文件大小；如果是目录，则为4096
+
+**后续：**文件最后修改时间和文件名
+
+
+
+##### 2.3.2 rwx含义
+
+1. rwx 作用到文件
+   - [ r ]代表可读(read): 可以读取,查看
+   - [ w ]代表可写(write): 可以修改,但是不代表可以删除该文件,删除一个文件的前提条件是对该文件所在的目录有写权限，才能删除该文件.
+   -  [ x ]代表可执行(execute):可以被执行
+
+2. rwx 作用到目录
+
+   - [ r ]代表可读(read): 可以读取，ls 查看目录内容
+
+   -  [ w ]代表可写(write): 可以修改,目录内创建+删除+重命名目录
+
+   - [ x ]代表可执行(execute):可以进入该目录
+
+     
+
+##### 2.3.3 权限操作
+
+```
+chmod targetoptionauthority filename 			#权限的修改添加去除操作
+chmod u=rwx,g=rx,o=rx test1.txt
+chmod 755 test1.txt
+```
+
+**target：**u：所有者，g：所有组，o：其他用户，a：所有用户
+
+**option：**+：添加，-：去除，=：赋予权限（覆盖之前的权限）
+
+**authority：**rwx所代表的权限，r = 4，x = 2，x = 1。可通过数字进行修改
 
 
 
@@ -340,6 +414,85 @@ su username
 组名：口令：组标示号：组内用户列表
 
 
-```
+
+### 5、任务调度
+
+定时的调度脚本/代码，完成某个任务。通过crontab完成
 
 ```
+crontab option
+crontab -e/-l/-r					#编辑crontab定时任务/查询crontab任务/删除当前用户所有的任务
+service crond restart 		#重启任务调度
+```
+
+![](https://tva1.sinaimg.cn/large/0082zybpgy1gbsato3icij30ze0eo75r.jpg)
+
+![](https://tva1.sinaimg.cn/large/0082zybpgy1gbsjn8taluj30qg0mc41f.jpg)
+
+**任务实例：隔一分钟将当前日期添加到/usr/test/mydate.txt**
+
+```
+1)	先编写一个文件	/usr/test/mytask1.sh 
+		date >> /usr/test/mydate.txt
+2)	给 mytask1.sh  一个可以执行权限
+		chmod 744 /usr/test/mytask1.sh 
+3)	编辑定时调度任务
+		crontab -e
+4)	添加任务
+		*/1 * * * *	/home/mytask1.sh		
+```
+
+
+
+### 6、进程管理
+
+#### 6.1 查看进程
+
+```
+ps [option]						#参数比较多，举例常用的
+
+ps -A									#列出所有行程
+
+ps -u username				#指定用户的进程信息
+
+ps -ef 								#详细列出所有的进程，常与管道过滤结合使用
+ps -ef | grep java		#查看java进程
+UID				PID		PPID		C	STIME		TTY			TIME			CMD
+```
+
+![](https://tva1.sinaimg.cn/large/0082zybpgy1gbsk86lwjzj30ts01wjrk.jpg)
+
+```
+pstree -p							#按树状图显示进程
+```
+
+
+
+#### 6.2 删除进程
+
+```
+kill PID									#删除进程
+kill -9 PID								#强制删除进程
+killall ProcessName				#删除某一进程名称
+```
+
+
+
+#### 6.3 动态监控进程
+
+```
+top [option]							#区别于ps的是，top是实时更新进程的信息
+
+top -d 秒数/ -i 			 		 #使top命令隔几秒更新，默认3s/不显示闲置，僵尸进程
+top -p PID								#监控
+
+进入top界面后，可以通过：
+1) "u"，回车，输入用户名，查看特定用户的进程
+2) "k"，回车，输入进程号，终止特定进程
+```
+
+
+
+### 7、linux磁盘分区与挂载
+
+搁置
