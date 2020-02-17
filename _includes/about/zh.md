@@ -15,11 +15,11 @@
 ## 联系我
 
 * GitHub：[Shenpotato](https://github.com/Shenpotato)
-* email：292069892@qq.com
-* [Weibo]()
-* [知乎]()
-* [Facebook]()
-* [Twitter]()
+* email：[QQ Email](292069892@qq.com)/[Gmail](shenpotato@gmail.com)
+* csdn: [沈土豆](https://blog.csdn.net/szt292069892)
+* Weibo: [你好像不是土豆](https://www.weibo.com/Shenpotato/home)
+* zhihu: [你好像是土豆](https://www.zhihu.com/people/Shenpotato)
+
 
 ## 关于本站
 
