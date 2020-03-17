@@ -28,6 +28,22 @@ catalog: true
 
 在windows上可以使用Xshell和XFtps或者MobaXterm（自己使用后推荐）进行远程登录云服务器。
 
+**Tips：长时间不访问服务器不断开链接操作**
+
+```
+修改/etc/ssh/sshd_config文件，找到 ClientAliveInterval 0和ClientAliveCountMax 3并将注释符号（"#"）去掉,
+
+将ClientAliveInterval对应的0改成60,
+
+ClientAliveInterval指定了服务器端向客户端请求消息 的时间间隔, 默认是0, 不发送.
+
+ClientAliveInterval 60表示每分钟发送一次, 然后客户端响应, 这样就保持长连接了.
+
+ClientAliveCountMax, 使用默认值3即可.ClientAliveCountMax表示服务器发出请求后客户端没有响应的次数达到一定值, 就自动断开.正常情况下, 客户端不会不响应.
+
+重起sshd服务：service sshd restart
+```
+
 
 
 ## 二、Linux相关操作
@@ -47,6 +63,9 @@ ping webaddress					#查看网络联通性
 
 netstat -anp						#查看所有的网络服务
 netstat -anp | grep java					#查看服务名为java的服务信息
+
+nc -zuv ip port					// 检测端口是否打开
+
 ```
 
 
@@ -496,3 +515,91 @@ top -p PID								#监控
 ### 7、linux磁盘分区与挂载
 
 搁置
+
+
+
+## 三、将Javaweb项目部署到云服务器
+
+项目是由maven搭建的springboot+mysql项目，在云服务器上的内容主要是部署环境
+
+1. java环境部署
+
+   尝试了在本地端下载jdk，通过scp传输到云服务器下，再进行安装
+   ```
+   scp /path/filename username@linuxserver:/path
+   ```
+
+2. mysql环境部署
+
+   ```
+   rpm -qa | grep mysql			// 查看是否有安装mysql
+   
+   rpm -e --nodeps mysql　　// 强力删除模式，如果使用上面命令删除时，提示有依赖的其它文件，则用该命令可以对其进行强力删除
+   ```
+
+   下载+安装
+
+   ```
+   wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+   rpm -ivh mysql-community-release-el7-5.noarch.rpm
+   yum update
+   yum install mysql-server
+   ```
+
+   配置
+
+   ```
+   mysqld --initialize 					//初始化 MySQL
+   
+   systemctl start mysqld				//启动 MySQL：
+   
+   systemctl status mysqld 			//查看 MySQL 运行状态：
+   
+   mysqladmin --version					//验证mysql安装
+   
+   mysqladmin -u root password "new_password";		//默认mysql无密码，需要修改密码
+   
+   mysql -u root -p							//mysql登陆
+   
+   set password for username@localhost = password('newpassword')		//mysql下修改密码
+   ```
+
+   
+
+3. maven环境部署
+
+   ```
+  //下载maven的tar包
+  wget http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
+  
+  tar -xvf apache-maven-3.5.2-bin.tar.gz 		//解压tar包
+  
+  // 修改/etc/profile
+  M2_HOME=/Users/shenzhengtao/code/apache-maven-3.5.2
+  export M2_HOME
+  
+  PATH=${PATH}:${JAVA_HOME}/bin:${M2_HOME}/bin
+  export PATH=$PATH:M2_HOME/bin
+  
+  // 使配置文件生效
+  source /etc/profile
+  
+  mvn -version 		// 查看maven相关信息
+   ```
+
+4. 运行java -jar命令启动java程序
+
+   ```
+   java -jar jarpackagename
+   
+   nohup java -jar jarpackagename > log.file 2>&1 &		//不在控制台运行，将日志输出到log.file中
+   ```
+
+   上面的2 和 1 的意思如下:
+
+   0    标准输入（一般是键盘）
+   1    标准输出（一般是显示屏，是用户终端控制台）
+   2    标准错误（错误信息输出）
+
+   将运行的jar 错误日志信息输出到log.file文件中，然后（>&1）就是继续输出到标准输出(前面加的&，是为了让系统识别是标准输出)，最后一个&,表示在后台运行。
+   

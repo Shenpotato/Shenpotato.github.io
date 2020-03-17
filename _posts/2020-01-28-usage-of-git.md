@@ -28,7 +28,7 @@ catalog: true
 
 #### （1）安装
 
-安装部分不多做讲解，主要就是搜索git下载，安装的过程
+安装部分不多做说明，主要就是搜索git下载，安装的过程
 
 #### （2）配置
 
@@ -94,3 +94,18 @@ catalog: true
 
 
 其余方面可参考这篇csdn博客：blog.csdn.net/youzhouliu/article/details/78952453
+
+
+
+## 四、问题记录
+
+1. 将本地仓库连接到远程仓库时提示：git fatal: 远程 origin 已经存在
+
+   是因为git的远程地址配错了，需要先移除现有的origin，再添加上正确的gitpath。
+
+   ```
+   git remove rm origin
+   git remote add origin correct gitpath
+   ```
+
+   
