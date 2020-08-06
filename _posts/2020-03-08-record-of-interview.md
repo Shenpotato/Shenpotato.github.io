@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "面试记录"
-tags: Lift 
+tags: Interview 
 author: Shenpotato
 catalog: true
 ---
@@ -50,7 +50,7 @@ catalog: true
      - 索引应该建在小字段上，对于大的文本字段甚至超长字段，不要建索引； 
      - 复合索引的建立需要进行仔细分析；尽量考虑用单字段索引代替：
      - 频繁进行数据操作的表，不要建立太多索引
-     - 删除无用索引，避免对执行计划造成负面yingx
+     - 删除无用索引，避免对执行计划造成负面影响
 
    （2）是如何运行脚本的
 
@@ -64,7 +64,7 @@ catalog: true
 
 4. ARP是哪一层的协议
 
-   ARP是介于网络层和物理链路层的协议，主要负责mac地址的解析
+   ‘ARP是介于网络层和物理链路层的协议，主要负责mac地址的解析
 
 5. 进程和线程的区别
 
@@ -159,6 +159,8 @@ catalog: true
 
 ## 二、腾讯CSIG后台开发实习面试（电脑管家）
 
+### 1.初面（3.9 30min）
+
 1. 项目介绍
 
    讲一下Floyd算法
@@ -166,6 +168,8 @@ catalog: true
    两个项目具体是怎么实现的
 
 2. struct和union的区别（C++）
+
+   https://blog.csdn.net/firefly_2002/article/details/7954458
 
 3. jvm的垃圾回收算法
 
@@ -177,5 +181,131 @@ catalog: true
 
 6. tcp协议介绍
 
+
+
+### 2.第二轮（3.18 50min）
+
+1. 介绍多线程聊天室实现
+   - Socket是如何实现的
+   - tcp协议，udp协议的原理，比较以及应用
+   - tcp内部是通过什么协议实现的
+   - tcp连接数受什么影响（让我思考，跟服务器的什么有关系
+
+2. 介绍springboot的项目
+   - 自我介绍为主，看如何项目的完成，如何选择对应的技术
+3. 算法：
+   - 反转链表
+   - 二叉树的中序实现->后序实现
+   - java中map的实现（红黑树）
+4. jvm
+   - java文件如何运行（编译再到操作系统的过程）
+   - java文件可以不通过字节码，直接转为二进制码吗
+   - 如何判断一个对象是垃圾（垃圾回收机制）
+   - 垃圾回收中新生代和老生代
+5. java相关
+   - 介绍反射机制，如何进行
+6. c++/c相关
+   - c和c++的区别
+   - c和c++转成二进制码的区别
+7. 我的提问
+   - 问了组的干嘛的
+   - 技术栈的影响
+   - 面试流程
+   - 表达了对于腾讯的浓浓爱意
+
+
+
+### 3.第三轮（3.20 30min）组长面？
+
+1. 项目
+
+   - 聊天室
+   - 网站
+   - jda实习
+   - 华为实习
+
+2. 堆栈区别
+
+3. 垃圾回收机制
+
+   gcroot是从哪里开始的
+
+4. java中有虚函数吗
+
+
+
+### 4. 第四轮（总监面）挂
+
+可能会问到的问题：
+
+1. 一个10G的文件，里面全部是自然数，一行一个，乱序排列，对其排序。在32位机器上面完成，内存限制为 2G。
+
+   https://www.jianshu.com/p/bf9dbbc147ed
+
+2. 一个数是不是2的次方
+
+3. 二叉树翻转：递归
+
+   ```java
+   TreeNode mirror（TreeNode treeNode）{
+   		if(P==NULL) return null;
+   		swap(treeNode.left, treeNode.right);
+   		mirror(treeNode.left);
+   		mirror(treeNode.right);
+   }
+   
+   void swap(TreeNode leftNode, TreeNode rightNode){
+   		TreeNode tempNode = leftNode;
+     	leftNode = rightNode;
+     	rightNode = tempNode;
+   }
+   ```
+
    
 
+4. 青蛙跳台阶
+
+5. 项目里面有哪些可以进行调优的地方
+
+   - 聊天室中，tcp链接可能会出现的问题（链接数目，吞吐量）
+   - 个人简历，高并发量，访问量
+
+6. 业界最新的一些技术
+
+实际问的：
+
+实际项目往深了问
+
+
+
+## 三、腾讯视频
+
+### 1.初面
+
+1. Tcp的三次握手，四次挥手
+
+2. 进程间通信方式
+
+3. map和vector的区别
+
+4. 如何实现一个单例
+
+5. IO的方式
+
+6. 算法：判断循环链表是否为空
+
+   
+
+7. 介绍各种数据结构
+
+8. 最小生成树：kruskal和kruskal之外还有什么
+
+   prim算法
+
+9. 快排怎么实现的
+
+10. redis的数据结构是什么样的
+
+11. 什么应该建立索引
+
+12. 

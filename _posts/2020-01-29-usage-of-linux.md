@@ -84,7 +84,6 @@ nc -zuv ip port					// 检测端口是否打开
 
 - 拷贝当前行/拷贝当前行向下的5行：yy/5yy，粘贴：p
 - 删除当前行/当前行向下5行：dd/5dd
-- 
 - 跳转至文档首行/末行：gg/G
 - 撤销前一个操作：u
 - 光标跳转到指定某一行：先输入行号，再输入shift➕g
@@ -569,29 +568,33 @@ top -p PID								#监控
 3. maven环境部署
 
    ```
-  //下载maven的tar包
-  wget http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
-  
-  tar -xvf apache-maven-3.5.2-bin.tar.gz 		//解压tar包
-  
-  // 修改/etc/profile
-  M2_HOME=/Users/shenzhengtao/code/apache-maven-3.5.2
-  export M2_HOME
-  
-  PATH=${PATH}:${JAVA_HOME}/bin:${M2_HOME}/bin
-  export PATH=$PATH:M2_HOME/bin
-  
-  // 使配置文件生效
-  source /etc/profile
-  
-  mvn -version 		// 查看maven相关信息
+    //下载maven的tar包
+    wget http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
+      
+    tar -xvf apache-maven-3.5.2-bin.tar.gz 		//解压tar包
+   
+   // 修改/etc/profile
+    M2_HOME=/Users/shenzhengtao/code/apache-maven-3.5.2
+    export M2_HOME
+   
+    PATH=${PATH}:${JAVA_HOME}/bin:${M2_HOME}/bin
+   export PATH=$PATH:M2_HOME/bin
+   
+    // 使配置文件生效
+   source /etc/profile
+   
+   mvn -version 		// 查看maven相关信息
+   
    ```
+
+
+
 
 4. 运行java -jar命令启动java程序
 
    ```
    java -jar jarpackagename
-   
+
    nohup java -jar jarpackagename > log.file 2>&1 &		//不在控制台运行，将日志输出到log.file中
    ```
 
@@ -603,3 +606,6 @@ top -p PID								#监控
 
    将运行的jar 错误日志信息输出到log.file文件中，然后（>&1）就是继续输出到标准输出(前面加的&，是为了让系统识别是标准输出)，最后一个&,表示在后台运行。
    
+   ```
+   
+   ```

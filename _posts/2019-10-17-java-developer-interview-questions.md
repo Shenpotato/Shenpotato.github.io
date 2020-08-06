@@ -3008,19 +3008,18 @@ RuntimeException又称为免检异常，不需要用try-catch包住的异常，�
    被强引用关联的对象**不会被回收**。
 
    使用 new 一个新对象的方式来创建强引用。
+   ```
 
    Object obj = new Object();
-
    ```
+
    **（2）软引用**
    
    被软引用关联的对象只有**在内存不够的情况下才会被回收**。
    
    使用 SoftReference 类来创建软引用。
    
-   
    ```
-
    Object obj = new Object();
    SoftReference<Object> sf = new SoftReference<Object>(obj);
    obj = null;  // 使对象只被软引用关联
@@ -3054,6 +3053,7 @@ RuntimeException又称为免检异常，不需要用try-catch包住的异常，�
    Object obj = new Object();
    PhantomReference<Object> pf = new PhantomReference<Object>(obj);
    obj = null;
+   ```
 
 
    ​
