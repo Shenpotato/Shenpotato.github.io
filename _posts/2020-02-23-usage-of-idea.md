@@ -88,6 +88,18 @@ command + option + shift + u：类的集成结构图
 
 
 
+
+
+### 3、将多个项目整合到一个项目中
+
+1. 新建一个项目
+
+2. 打开project structure，在Project中设置好SDK等相关配置
+
+3. 在project structure的module中选择项目导入
+
+   ![](https://tva1.sinaimg.cn/large/007S8ZIlgy1ghn52haev3j310r0u0whl.jpg)
+
 ### 
 
 #### 

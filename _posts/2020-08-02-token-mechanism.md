@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Token的使用"
-tags: Java 
+tags: Java Token
 author: Shenpotato
 catalog: true
 ---
@@ -12,19 +12,21 @@ catalog: true
 >
 > 参考：
 >
-> https://mp.weixin.qq.com/s/e3Sy4Mw69gN1weHXc7KsFA
+> 彻底理解cookie、session和token https://mp.weixin.qq.com/s/e3Sy4Mw69gN1weHXc7KsFA
 >
-> https://www.jianshu.com/p/9b6eb3308294
+> SpringBoot+Shiro+Jwt实现登录认证 https://www.jianshu.com/p/9b6eb3308294
 >
-> https://juejin.im/post/6844903823966732302#heading-6
+> SpringBoot+vue前后端分离博客项目 https://juejin.im/post/6844903823966732302#heading-6
 >
 > 项目代码：
 >
-> 
+> https://github.com/Shenpotato/vueblog
 
 
 
 项目中使用到了Shrio整合Springboot进行JwtToken验证，自己对这块内容不是太熟悉，进行一点记录
+
+
 
 
 
