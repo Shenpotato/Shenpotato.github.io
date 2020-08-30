@@ -1,0 +1,103 @@
+I"�<blockquote>
+  <p>记录mac上特殊的使用技巧和软件</p>
+</blockquote>
+
+<h3 id="1-homebrew">1. HomeBrew</h3>
+
+<p>软件管理的工具，类似于ubuntu系统下的apt-get功能</p>
+
+<h4 id="11-安装brew">1.1 安装brew</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="12-切换brew源">1.2 切换brew源</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre># 替换brew.git:
+ cd "$(brew --repo)"
+ git remote set-url origin https://mirrors.ustc.edu.cn/brew.git   #中科大
+ git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git	  #清华
+
+# 替换homebrew-core.git:
+ cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
+ git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git   #中科大
+ git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git		#清华
+
+# 替换homebrew-bottles:
+ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' &gt;&gt; ~/.bash_profile
+ source ~/.bash_profile
+ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles' &gt;&gt; ~/.bash_profile
+ source ~/.bash_profile
+
+# 应用生效:
+ brew update
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>切换回官方源</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre># 重置brew.git:
+ cd "$(brew --repo)"
+ git remote set-url origin https://github.com/Homebrew/brew.git
+
+# 重置homebrew-core.git:
+ cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
+ git remote set-url origin https://github.com/Homebrew/homebrew-core.git
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="13-使用brew">1.3 使用brew</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre>brew install git 				#安装git
+
+brew uninstall git 			#卸载git
+
+brew search /gi*/ 			#查询软件/gi*/是个正则表达式，包含在/ /中
+
+brew list								#列出已安装的软件
+
+brew update							#更新brew
+
+brew info								#显示软件信息
+
+brew deps								#显示包依赖
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+:ET

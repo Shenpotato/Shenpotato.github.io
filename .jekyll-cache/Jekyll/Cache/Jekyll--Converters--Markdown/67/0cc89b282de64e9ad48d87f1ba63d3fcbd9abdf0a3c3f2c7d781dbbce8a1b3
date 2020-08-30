@@ -1,0 +1,214 @@
+I"�"<blockquote>
+  <p>华为数通知识学习</p>
+
+  <p>视频地址：https://www.bilibili.com/video/BV1Jx411j7pR</p>
+</blockquote>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfhb45nwosj30yx0ki0v8.jpg" alt="" /></p>
+
+<h3 id="一数据通信网络的基本概念">一、数据通信网络的基本概念</h3>
+
+<h4 id="11-交换机switch">1.1 交换机（Switch）</h4>
+
+<p>终端/数据中心接入在交换机的网元上，每个网元是个冲突域。</p>
+
+<p>一个交换机是个广播域（Broadcast Domain)。广播，是在特殊场景下的数据传播方式。ARP，DHCP等协议所要用到。广播增加了数据传输的损耗。在IPV6取消了广播。</p>
+
+<p>单播（Unicast）：点对点的传播</p>
+
+<p>组播（Muliticast）：一对多，视频，多媒体上应用</p>
+
+<p>广播（Broadcast）：只在某个局域网内生效，三层（IP）上的目的ip表示为255.255.255.255；二层目的MAC表示为全F。</p>
+
+<p>交换机的基本功能：</p>
+
+<ul>
+  <li>数据帧的交换</li>
+  <li>终端用户设备接入</li>
+  <li>基本的接入安全功能（MAC地址过滤，ARP的记片）</li>
+  <li>广播域的隔离（VLAN）</li>
+  <li>二层链路的冗余，防环以及负载均衡</li>
+</ul>
+
+<p>连接在同一个交换机上的网元，通常处于同一个广播域中，又称为同一个LAN中，同一个逻辑子网中。</p>
+
+<p>同一个交换机上的pc之间的通信行为称为二层通信</p>
+
+<h4 id="12-路由器router">1.2 路由器（Router）</h4>
+
+<p>路由器类比车站，数据相当于人，车站决定人怎么到达某个目的地。这个过程称为路由。</p>
+
+<ul>
+  <li>隔绝广播，实现跨三层的数据访问</li>
+  <li>路由协议的支持，维护路由表</li>
+  <li>路径选择及数据转发</li>
+  <li>广域网接入，地址转换及特定的安全功能</li>
+</ul>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfh8ucyb59j30zy0mz48a.jpg" alt="image-20200605111810757" /></p>
+
+<h3 id="二osi七层模型open-system-interconnect">二、OSI七层模型(Open System Interconnect)</h3>
+
+<p>开放系统互连参考模型，是由IOS（国际标准化组织）定义的。是一个灵活，文件和可交互的模型</p>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfhbd5fbimj30zg0mdq5b.jpg" alt="" /></p>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfhosz1odvj30zd0kk0w1.jpg" alt="" /></p>
+
+<h4 id="21-应用层">2.1 应用层</h4>
+
+<p>为应用软件提供接口，是应用程序能够使用网络服务。常见协议：http(80), ftp(20/21), smtp(25), telnet(23), dns(53)</p>
+
+<h4 id="22-表示层">2.2 表示层</h4>
+
+<p>数据的编/解码，加/解密，压缩/解压缩。常见标准如ASCII，JPEG。</p>
+
+<h4 id="23-会话层">2.3 会话层</h4>
+
+<p>建立，管理和终止表示层尸体之间的会话连接。在设备或节点之间提供会话控制。在系统之间协调通信过程。</p>
+
+<h4 id="24-传输层">2.4 传输层</h4>
+
+<p>将上层应用程序的数据进行分段和重组，组合为数据流的形式。有UDP和TCP</p>
+
+<h4 id="25-网络层">2.5 网络层</h4>
+
+<p>定义了逻辑地址。分组寻址，将分组数据从源端传输到目的端。通过路由选择，和维护路由表实现。</p>
+
+<h4 id="26-数据链入层">2.6 数据链入层</h4>
+
+<p>在不可靠的物理链路上，提供可靠的数据传输入伍，把帧从一跳移动到另一跳。组帧，物理编址，流量控制，差错控制。数据链入层（以太网二层）逻辑地址：MAC地址（48 bits）</p>
+
+<h4 id="27-物理层">2.7 物理层</h4>
+
+<p>工作在物理层的设备——Hub集线器</p>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfics2g8rfj312i0ohtc2.jpg" alt="" /></p>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gficxz0w5xj30y10nsgoo.jpg" alt="" /></p>
+
+<h3 id="三tcp--udp">三、TCP &amp; UDP</h3>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfid26943xj30wy0n2q5a.jpg" alt="" /></p>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfid4tx52dj30wu0li76w.jpg" alt="" /></p>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfid5uaj02j310e0kngn5.jpg" alt="" /></p>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gg8z41ipq0j30hh0cr0tq.jpg" alt="" /></p>
+
+<h4 id="31-tcp与udp简单对比">3.1 TCP与UDP简单对比</h4>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gg8z5wzttzj30qq0cyt9x.jpg" alt="" /></p>
+
+<p>源端口号随机分配，一般未系统中未使用的且大于1023；目的端口号在未指定的情况下使用应用服务的进程的默认端口号。</p>
+
+<h4 id="32-tcp">3.2 TCP</h4>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gg8z71osxfj30nk0dc3ze.jpg" alt="" /></p>
+
+<p>Sequence number（序列号），Acknowledegment number（确认号）：保证可靠传输</p>
+
+<p>windows（活动窗口）</p>
+
+<p>control bit（控制位）：6个位</p>
+
+<h5 id="321-三次握手">3.2.1 三次握手</h5>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gg8zmytsodj30ot0fcwfa.jpg" alt="" /></p>
+
+<p>seq是自己的序列号，ctl = SYN 代表控制号的SYN置1，ack是用于确认对端的序列号。</p>
+
+<h5 id="322-四次挥手">3.2.2 四次挥手</h5>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gg8zs80ivxj30st0ga75l.jpg" alt="" /></p>
+
+<h5 id="323-滑动窗口">3.2.3 滑动窗口</h5>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gg8zxryn4dj30q60h1407.jpg" alt="" /></p>
+
+<h4 id="33-udp">3.3 UDP</h4>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gg8zls8qwmj30od0bhgm5.jpg" alt="" /></p>
+
+<h3 id="四ip">四、IP</h3>
+
+<h4 id="41-基本信息">4.1 基本信息</h4>
+
+<h5 id="411-报文格式">4.1.1 报文格式</h5>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gg902ogncsj30of0ek0tt.jpg" alt="" /></p>
+
+<p><strong>Priority&amp;Type of Service：</strong>处理QOS</p>
+
+<p><strong>Identification，Fragment offset：</strong>分片</p>
+
+<p><strong>Time to live(TTL)：</strong>防环。报文发送时，赋给TTL一个初始值，每经过一个路由时减一，当TTL值为1时，向数据包起源发送报错消息（ICMP消息）。</p>
+
+<p><strong>Protocol：</strong>用于告知上层协议是什么</p>
+
+<p><strong>Header checksum：</strong>检测报文是否完整</p>
+
+<h5 id="412-基本概念">4.1.2 基本概念</h5>
+
+<ul>
+  <li>IP地址在网络中用于标识一个节点（或者网络设备的接口）</li>
+  <li>也用于IP分组在网络中的寻址</li>
+  <li>IPv4有32位，使用”点分十进制“表示。</li>
+</ul>
+
+<h5 id="413-地址划分">4.1.3 地址划分</h5>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gg998h51zpj30od0d2gmw.jpg" alt="" /></p>
+
+<p>路由器不关心Host部分，只关心网络号。</p>
+
+<p><strong>子网掩码：</strong>网络部分用1表示，主机部分用0表示。192.168.1.0/24</p>
+
+<p><strong>可变长子网划分：</strong>将主机位的某几位借给网络位。其中255将作为广播号，0作为自身，将保留。192.168.1.0/25</p>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gga4cabpu5j30q30anmyb.jpg" alt="" /></p>
+
+<h4 id="42-网络传输过程">4.2 网络传输过程</h4>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gg98olnj7kj30pw0d675p.jpg" alt="" /></p>
+
+<p>PC通过ARP协议获取了R1的MAC地址，PC发送一个数据帧到R1，源MAC地址为PCMAC地址，目的MAC地址为R1 GE0/0/0MAC地址。目的IP地址为192.168.1.1，源IP地址为192.168.2.1。</p>
+
+<p>R1发现MAC地址匹配，进行拆解MAC帧头，发现目的IP地址不匹配，则根据路由表进行转发，再次包装上新得MAC帧头，发送至R2。</p>
+
+<p>R2发现MAC地址匹配，IP地址虽然不是自身IP，但是是本地直连网段，则将报文重新封装转发至Server，完成整个传输流程。</p>
+
+<p><strong>traceroute ipaddr：</strong>追溯ping通某一ip地址的路径</p>
+
+<h4 id="43-arp地址解析协议">4.3 ARP（地址解析协议）</h4>
+
+<ul>
+  <li>将IP地址解析为MAC地址</li>
+  <li>维护ARP映射缓存</li>
+</ul>
+
+<p>当前主机未知目的IP的MAC地址时，需要通过交换机进行广播，对应IP地址发送一个单播的数据帧回去，携带对应的MAC地址</p>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gg98jnoslxj30i708s3z8.jpg" alt="" /></p>
+
+<p>主机将对应IP地址和MAC地址对应起来的表称为ARP表。</p>
+
+<ul>
+  <li>广播和ARP表造成的负担大</li>
+  <li>不可靠和不安全，无确认机制可能造成ARP欺骗。</li>
+</ul>
+
+<h3 id="五ip路由选择">五、IP路由选择</h3>
+
+<p><strong>路由器的工作内容 ：</strong></p>
+
+<ul>
+  <li>路由器知道目的地址</li>
+  <li>发现到达目的地址的可能路径</li>
+  <li>选择最佳路径、路由表</li>
+  <li>维护路由信息</li>
+  <li>转发ip数据</li>
+</ul>
+
+:ET

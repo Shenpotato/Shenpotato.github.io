@@ -1,0 +1,93 @@
+I";<blockquote>
+  <p>本文主要就Flink的使用进行记录</p>
+
+  <p>flink中文社区：https://ververica.cn/developers-resources/</p>
+</blockquote>
+
+<h2 id="一flink安装与使用">一、Flink安装与使用</h2>
+
+<p>场景是在IDEA上使用Maven项目要进行flink的实验。</p>
+
+<p>首先在pom文件中配置了flink的相关内容。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre></td><td class="rouge-code"><pre>        &lt;!--   flink     --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.flink&lt;/groupId&gt;
+            &lt;artifactId&gt;flink-java&lt;/artifactId&gt;
+            &lt;version&gt;1.8.0&lt;/version&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.flink&lt;/groupId&gt;
+            &lt;artifactId&gt;flink-streaming-java_2.11&lt;/artifactId&gt;
+            &lt;version&gt;1.8.0&lt;/version&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--   scale     --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.flink&lt;/groupId&gt;
+            &lt;artifactId&gt;flink-scala_2.11&lt;/artifactId&gt;
+            &lt;version&gt;1.8.0&lt;/version&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.flink&lt;/groupId&gt;
+            &lt;artifactId&gt;flink-streaming-scala_2.11&lt;/artifactId&gt;
+            &lt;version&gt;1.8.0&lt;/version&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>上述配置文件的Scala的下载安装指南可以通过这个教程完成：https://www.runoob.com/scala/scala-install.html</p>
+
+<p>在安装完Scala之后，然后需要对项目添加Scala的框架支持（Add FrameWork Support）。我们需要在IDEA上安装Scala的插件，才能为项目添加Scala框架支持。在这里遇到了问题。</p>
+
+<p><strong>问题：在Setting-&gt;Plugin的marketplace中搜索Scala插件不显示</strong></p>
+
+<p>问题分析应该是在中国大陆不支持plugin在IDEA上的安装。</p>
+
+<p>网上的方法有三种：</p>
+
+<ul>
+  <li>Appereance -&gt; System Settings -&gt; Updates -&gt; User secure connection选项去除选择。但是在IDEA2019.3之后的版本已经没有了这个选项</li>
+  <li>配置代理。由于没有自己没有服务器，所有没有试这个方法。</li>
+  <li>下载Scala的文件，手动导入IDEA的plugin文件夹中。但是这个方法在mac上不适用。</li>
+</ul>
+
+<p><strong>Solution：</strong></p>
+
+<p>最后我们使用了去<a href="https://plugins.jetbrains.com/">IDEA官网的插件板块</a>，下载了对应的Scala插件包。这里要注意选择的插件版本要与自身IDEA的版本相对应。之后在IDEA的plugin模块选择Install Plugin From Disk，将插件包导入，就此完成Scala在IDEA上的配置。</p>
+
+<p>注意：一定是IDEA官网的插件包，而不是Scala官网对应版本的Scala压缩文件。</p>
+
+<h3 id="二datastream-demo">二、DataStream Demo</h3>
+
+:ET

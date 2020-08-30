@@ -1,0 +1,20 @@
+I"<h2 id="使用-docker-compose-快速搭建个人云并配置多存储介质">使用 Docker Compose 快速搭建个人云并配置多存储介质</h2>
+
+<p><a href="https://cloud.tencent.com/developer/labs/lab/10414">参考文章</a></p>
+
+<p>要注意的是在通过</p>
+
+<p><code class="highlighter-rouge">pip install docker-compose --ignore-installed</code></p>
+
+<p>安装docker compose时，会出现如下所示的错误</p>
+
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gbez0zcxr5j30rs06a0tq.jpg" alt="" /></p>
+
+<p>这是由于缺少了Python.h导致的，通过</p>
+
+<p><code class="highlighter-rouge">yum install python-devel</code>可解决。</p>
+
+<p>其他方面按照文章所示配置即可。</p>
+
+<p>后续添加使用这个个人云存储和下载文件</p>
+:ET

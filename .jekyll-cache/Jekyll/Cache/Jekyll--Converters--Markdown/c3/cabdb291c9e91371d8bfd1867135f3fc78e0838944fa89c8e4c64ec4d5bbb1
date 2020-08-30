@@ -1,0 +1,296 @@
+I"7O<blockquote>
+  <p>性能优化内容来自：https://www.cnblogs.com/chinafine/articles/1787118.html</p>
+</blockquote>
+
+<p>1、数据类型转换</p>
+
+<p>(1)string 与 int</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="err">'</span><span class="mi">123</span><span class="err">'</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+
+<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1234</span><span class="o">;</span>
+<span class="n">string</span> <span class="n">s1</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>(2)char 与int</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="sc">'1'</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="nc">Character</span><span class="o">.</span><span class="na">character</span><span class="o">.</span><span class="na">getnumericvalue</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>2、导入包的不同</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Assertions</span><span class="o">;</span>								<span class="c1">//导入类</span>
+
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">jupiter</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">Assertions</span><span class="o">.*;</span>				<span class="c1">//导入类的静态方法</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>import static 可以省略类名，比如Assertions.assertEquals()中的Assertions，System.out.println()的System。</p>
+
+<p>在要多次使用某一个类中的静态方法时，可以使用import static。但是要防止导入不同类时的冲突。如导入Integer类和Double类时，都定义了MAX_VALUE。</p>
+
+<p>3、不使用 a % 2 == 1来判断是否为奇数，当a为负奇数时不成立</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="o">(</span><span class="n">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>				<span class="c1">//判断是否为偶数</span>
+<span class="o">((</span><span class="n">a</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="o">)</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>			<span class="c1">//判断是否为奇数</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="二性能优化">二、性能优化</h3>
+
+<ol>
+  <li>
+    <p>避免在循环中使用复杂表达式</p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">size</span> <span class="o">=</span> <span class="n">vector</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="o">;</span> <span class="n">i</span><span class="o">++){}</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>如果已知容器所使用的空间大小，为容器定义初始大小</p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="nc">Hashtable</span> <span class="n">hashtable</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Hashtable</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>在finally块中关闭stream</p>
+  </li>
+</ol>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">method</span> <span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">fileinputstream</span> <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">fileinputstream</span> <span class="o">(</span><span class="s">"cs.java"</span><span class="o">);</span>
+            <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">fis</span><span class="o">.</span><span class="na">read</span> <span class="o">()</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span>
+                <span class="n">count</span><span class="o">++;</span>
+            <span class="n">system</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span> <span class="o">(</span><span class="n">count</span><span class="o">);</span>
+            <span class="n">fis</span><span class="o">.</span><span class="na">close</span> <span class="o">();</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">filenotfoundexception</span> <span class="n">e1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">}</span> <span class="k">finally</span><span class="o">{</span>
+        	<span class="n">fis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+     <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ol>
+  <li>
+    <p>使用system.arraycopy()代替循环复制数组</p>
+  </li>
+  <li>
+    <p>访问实例内变量的getter/setter方法变成”final”</p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">daf_fixed</span> <span class="o">{</span>
+    <span class="kd">final</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setsize</span> <span class="o">(</span><span class="kt">int</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+         <span class="n">_size</span> <span class="o">=</span> <span class="n">size</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">_size</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>避免不必要的instanceof操作和类型转换</p>
+  </li>
+  <li>
+    <p>使用移位操作代替除号</p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kt">int</span> <span class="n">quotient1</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span><span class="o">;</span>				<span class="c1">// equals to a / 2</span>
+<span class="kt">int</span> <span class="n">quotient2</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span><span class="o">;</span> 			<span class="c1">// euqals to a / 4</span>
+<span class="kt">int</span> <span class="n">quotient3</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="mi">3</span><span class="o">;</span>				<span class="c1">// 无法用移位操作完成</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>字符串相加时，若一字符串只有一个字符，用’ ‘</p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nc">String</span> <span class="n">str1</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">str2</span> <span class="o">=</span> <span class="n">str1</span> <span class="o">+</span> <span class="sc">'d'</span><span class="o">;</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>循环中</p>
+
+    <ul>
+      <li>
+        <p>不调用synchronized同步方法</p>
+
+        <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">syn</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">method</span> <span class="o">(</span><span class="n">object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">}</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">test</span> <span class="o">()</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">vector</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">method</span> <span class="o">(</span><span class="n">vector</span><span class="o">.</span><span class="na">elementat</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>    <span class="c1">// violation</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="kd">private</span> <span class="n">vector</span> <span class="n">vector</span> <span class="o">=</span> <span class="k">new</span> <span class="n">vector</span> <span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+<span class="o">}</span>
+     
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">syn</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">method</span> <span class="o">(</span><span class="n">object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">}</span>
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">test</span> <span class="o">()</span> <span class="o">{</span>
+    <span class="kd">synchronized</span><span class="o">{</span><span class="c1">//在一个同步块中执行非同步方法</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">vector</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">method</span> <span class="o">(</span><span class="n">vector</span><span class="o">.</span><span class="na">elementat</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>   
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="kd">private</span> <span class="n">vector</span> <span class="n">vector</span> <span class="o">=</span> <span class="k">new</span> <span class="n">vector</span> <span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>将try/catch移出循环</p>
+
+        <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">try</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">method</span> <span class="o">(</span><span class="n">fileinputstream</span> <span class="n">fis</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">try</span> <span class="o">{</span>                                      <span class="c1">// violation</span>
+                <span class="n">_sum</span> <span class="o">+=</span> <span class="n">fis</span><span class="o">.</span><span class="na">read</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">_sum</span><span class="o">;</span>
+<span class="o">}</span>
+     
+ <span class="kt">void</span> <span class="nf">method</span> <span class="o">(</span><span class="n">fileinputstream</span> <span class="n">fis</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">_sum</span> <span class="o">+=</span> <span class="n">fis</span><span class="o">.</span><span class="na">read</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>不在循环中实例化变量</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>对于boolean值，不要出现boolean == true这种判断</p>
+  </li>
+  <li>
+    <p>使用条件操作符替代可以替代的if…else</p>
+  </li>
+</ol>
+
+<h3 id="三容器使用">三、容器使用</h3>
+
+<h4 id="1priorityqueue">1、PriorityQueue</h4>
+
+<p>https://blog.csdn.net/u010623927/article/details/87179364</p>
+
+<p>底层维护一个表示二叉搜索树的数组。包含了</p>
+
+<ul>
+  <li>添加元素：add()，失败抛出异常；offer()，返回false</li>
+  <li>堆顶元素：element()，失败抛出异常；peek()，返回false</li>
+  <li>删除堆顶元素：remove()，失败抛出异常；poll()，返回null</li>
+  <li>删除指定元素：remove(Object o)；</li>
+</ul>
+
+<p>PriorityQueue是一个线程不安全的集合类，PriorityBlockingQueue为PriorityQueue加上了ReentrantLock锁，实现了线程安全。</p>
+
+<p>自定义类使用PriorityQueue时，需要实现比较器。</p>
+
+<p>扩容的代码</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kt">int</span> <span class="n">newCapacity</span> <span class="o">=</span> <span class="n">oldCapacity</span> <span class="o">+</span> <span class="o">((</span><span class="n">oldCapacity</span> <span class="o">&lt;</span> <span class="mi">64</span><span class="o">)</span> <span class="o">?</span>
+                                 <span class="o">(</span><span class="n">oldCapacity</span> <span class="o">+</span> <span class="mi">2</span><span class="o">)</span> <span class="o">:</span>
+                                 <span class="o">(</span><span class="n">oldCapacity</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="o">));</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>降序实现代码：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nc">PriorityQueue</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">priorityQueue</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PriorityQueu</span><span class="o">((</span><span class="n">o1</span><span class="o">,</span><span class="n">o2</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">o2</span> <span class="o">-</span> <span class="n">o1</span><span class="o">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>实现toArray()方法，转换为数组。</p>
+
+<h4 id="2hashmap">2、HashMap</h4>
+:ET

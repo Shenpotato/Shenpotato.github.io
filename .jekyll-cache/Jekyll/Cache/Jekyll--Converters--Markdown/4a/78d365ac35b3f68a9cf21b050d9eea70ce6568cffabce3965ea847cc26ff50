@@ -1,0 +1,274 @@
+I"G<blockquote>
+  <p>《前端基础必会教程-4 小时带你快速入门 vue》（https://www.bilibili.com/video/BV12J411m7MG?p=31）学习笔记</p>
+
+  <p>代码地址：https://github.com/Shenpotato/vuebasic</p>
+</blockquote>
+
+<h3 id="一vue基础">一、vue基础</h3>
+
+<p>Vue官网地址：https://cn.vuejs.org/</p>
+
+<p><strong>使用时需导入：</strong> <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script></p>
+
+<p>由于Vue是javascript的框架，因此，它遵循其语法规则。</p>
+
+<p>El：在<script>中绑定某个&lt;div&gt;的工具。可以通过id绑定，类绑定，标签绑定。</script></p>
+
+<p>data：类似于编程语言中的变量。包含数组，key-value等对应形式。html中可以<strong>通过访问</strong>。</p>
+
+<p>function：当进行某种操作时，需要调用的方法。在其中实现逻辑判断。<strong>通过this访问定义的变量</strong>。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;div</span> <span class="na">id =</span><span class="s">"app1"</span><span class="nt">&gt;</span>
+  
+  <span class="nt">&lt;p&gt;</span>
+    
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    
+  <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"app2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;p&gt;&lt;p&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+	<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+		<span class="na">el</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#app1</span><span class="dl">"</span><span class="p">,</span>			<span class="c1">//id绑定</span>
+		<span class="c1">//el: ".app2",			//类绑定</span>
+		<span class="c1">//el: "p",					//标签绑定</span>
+    <span class="na">data</span><span class="p">:{</span>
+      <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">shenpotato</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">school</span><span class="p">:{</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">central south university</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">location</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ChangSha</span><span class="dl">"</span>
+      <span class="p">},</span>
+      <span class="na">relatives</span><span class="p">:[</span><span class="dl">"</span><span class="s2">shentomato</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">sheneggplant</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">shenwatermalon</span><span class="dl">"</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="na">functionExample1</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span><span class="nx">param2</span><span class="p">,...){</span>
+      
+    <span class="p">}</span>
+	<span class="p">})</span>
+<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="二本地应用">二、本地应用</h3>
+
+<h4 id="1-v-text">1. v-text</h4>
+
+<p>作用：输出数据。message和info都是Vue中定义的变量。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;p</span> <span class="na">v-text=</span><span class="s">"message"</span><span class="nt">&gt;</span>深圳<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">v-text=</span><span class="s">"info"</span><span class="nt">&gt;</span>深圳<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>深圳<span class="nt">&lt;/p&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="2-v-html">2. v-html</h4>
+
+<p>作用：输出数据（保留html格式）</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c">&lt;!-- v-html 保留html格式  --&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">v-test=</span><span class="s">"content"</span><span class="nt">&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">v-html=</span><span class="s">"content"</span><span class="nt">&gt;&lt;/p&gt;</span>
+
+Vue:
+content: "<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'http://www.baidu.com'</span><span class="nt">&gt;</span>百度网址<span class="nt">&lt;/a&gt;</span>",
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="3-v-on">3. v-on</h4>
+
+<p>作用：绑定事件。@click，@dblclick都是简写，分别代表点击和双击触发的事件。与Vue中定义的函数绑定。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">value=</span><span class="s">"事件绑定"</span> <span class="na">v-on:click=</span><span class="s">"doIt"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">value=</span><span class="s">"v-on简写"</span> <span class="err">@</span><span class="na">click=</span><span class="s">"doIt"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">value=</span><span class="s">"双击事件"</span> <span class="err">@</span><span class="na">dblclick=</span><span class="s">"doIt"</span> <span class="nt">/&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="4-v-show">4. v-show</h4>
+
+<p>作用：根据表达式真假切换元素的显示状态，通过修改元素的dispaly实现掩藏显示</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;h2&gt;</span>v-show：根据表达式真假切换元素的显示状态<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">value=</span><span class="s">"切换显示状态"</span> <span class="err">@</span><span class="na">click=</span><span class="s">"changeStatus"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">v-show=</span><span class="s">"isShow"</span> <span class="na">src=</span><span class="s">"img/cat.jpg"</span> <span class="na">alt=</span><span class="s">""</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;p&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>现在的年龄：，当年龄大于18时，显示图片<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">value=</span><span class="s">"添加年龄"</span> <span class="err">@</span><span class="na">click=</span><span class="s">"addAge"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">v-show=</span><span class="s">"age&gt;18"</span> <span class="na">src=</span><span class="s">"img/cat.jpg"</span> <span class="na">alt=</span><span class="s">""</span> <span class="nt">/&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="5-v-if">5. v-if</h4>
+
+<p>作用：根据表达式真假切换元素的显示。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">value=</span><span class="s">"切换标签状态"</span> <span class="err">@</span><span class="na">click=</span><span class="s">"changeTagStatus"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">v-if=</span><span class="s">"isTagShow"</span><span class="nt">&gt;</span>我是一个标签<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">v-if=</span><span class="s">"temperature&gt;35"</span><span class="nt">&gt;</span>温度过高<span class="nt">&lt;/p&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>与v-show的区别</strong></p>
+
+<p>v-if是对标签进行操作，false时标签在dom树消失
+v-show标签仍然存在于dom树</p>
+
+<h4 id="6v-bind">6.v-bind</h4>
+
+<p>作用：设置元素的属性。其中imgSrc是定义在Vue中data的一个变量。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;h2&gt;</span>v-bind设置元素的属性<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">v-bind:src=</span><span class="s">"imgSrc"</span> <span class="nt">/&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="7-v-for">7. v-for</h4>
+
+<p>作用：根据数据生成列表结构</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;h2&gt;</span>v-for：根据数据生成列表结构<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">v-for=</span><span class="s">"(item, index) in arr"</span><span class="nt">&gt;</span>
+      方位： + 
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="8-v-model">8. v-model</h4>
+
+<p>作用：将表单元素的之与Vue中data数据双向绑定。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;h2&gt;</span>v-model 获取和设置表单元素的值<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">v-model=</span><span class="s">"message"</span> <span class="err">@</span><span class="na">keyup.enter=</span><span class="s">"getMessage"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;b</span> <span class="na">v-text=</span><span class="s">"message"</span><span class="nt">&gt;&lt;/b&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="err">@</span><span class="na">click=</span><span class="s">"setMessage"</span> <span class="na">value=</span><span class="s">"改变message"</span><span class="nt">&gt;&lt;/input&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="三网络应用">三、网络应用</h3>
+
+<p>通过axios实现访问接口。</p>
+
+<p>首先需要引入axios的script依赖：    <script src="https://unpkg.com/axios/dist/axios.min.js"></script></p>
+
+<p>axios通过get和post请求获取内容的方法。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nx">axios</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">url</span><span class="p">?</span><span class="nx">key</span><span class="o">=</span><span class="nx">value</span><span class="o">&amp;</span><span class="nx">key2</span><span class="o">=</span><span class="nx">values</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){},</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">){})</span>
+
+<span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">url</span><span class="p">,{</span><span class="na">key</span><span class="p">:</span><span class="nx">value</span><span class="p">,</span><span class="na">key2</span><span class="p">:</span><span class="nx">values</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){},</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">){})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>post实例：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">.get</span><span class="dl">"</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://autumnfish.cn/api/reg</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span> <span class="na">username</span><span class="p">:</span> <span class="dl">"</span><span class="s2">shenpotato</span><span class="dl">"</span> <span class="p">}).</span><span class="nx">then</span><span class="p">(</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">);</span>
+<span class="p">};</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>get实例：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="nx">getJoke</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  <span class="nx">axios</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://autumnfish.cn/api/joke</span><span class="dl">"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">that</span><span class="p">.</span><span class="nx">joke</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">);</span>
+<span class="p">},</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>注意：我们需要定义that指向this，因为在axios中，this指向会发生变化。</strong></p>
+
+:ET

@@ -1,0 +1,16 @@
+I"�<blockquote>
+  <p>Token与Session比较 + Shiro整合Springboot实现登陆校验</p>
+
+  <p>参考：</p>
+
+  <p>彻底理解cookie、session和token https://mp.weixin.qq.com/s/e3Sy4Mw69gN1weHXc7KsFA</p>
+
+  <p>SpringBoot+Shiro+Jwt实现登录认证 https://www.jianshu.com/p/9b6eb3308294</p>
+
+  <p>SpringBoot+vue前后端分离博客项目 https://juejin.im/post/6844903823966732302#heading-6</p>
+
+  <p>项目代码：</p>
+
+  <p>https://github.com/Shenpotato/vueblog</p>
+</blockquote>
+:ET

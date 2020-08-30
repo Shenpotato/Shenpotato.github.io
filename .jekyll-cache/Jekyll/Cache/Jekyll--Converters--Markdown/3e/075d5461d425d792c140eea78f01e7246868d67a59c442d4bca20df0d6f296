@@ -1,0 +1,99 @@
+I"�<blockquote>
+  <p>本文主要讲述了什么是Git，如何配置本地Git以及本地Git仓库和远程Github如何进行交互</p>
+
+  <p>操作以mac系统下为例</p>
+</blockquote>
+
+<h2 id="一git和github-的概念">一、Git和Github 的概念</h2>
+
+<ul>
+  <li>
+    <p>Git是一个版本控制软件，进行控制的形式多样，可通过git bash，git gui实现本地仓库的创建，与远程仓库的连接，上传内容至远程仓库，从远程仓库下载内容至本地仓库等功能。</p>
+  </li>
+  <li>
+    <p>Github是一个版本控制社区网站。用户可在Github上申请账号，并创建版本仓库。在Github上的仓库即为远程仓库。</p>
+  </li>
+</ul>
+
+<h2 id="二git的使用">二、Git的使用</h2>
+
+<h3 id="1git的安装与配置">1、Git的安装与配置</h3>
+
+<h4 id="1安装">（1）安装</h4>
+
+<p>安装部分不多做说明，主要就是搜索git下载，安装的过程</p>
+
+<h4 id="2配置">（2）配置</h4>
+
+<p>以配置整台机子的Git仓库为例。通过<code class="highlighter-rouge">git config --global</code>设置username以及userpassword等属性，实现与Github相连接。</p>
+
+<h3 id="2git的使用">2、Git的使用</h3>
+
+<p>我们以命令行来讲解Git的使用。</p>
+
+<p>如上所说，Git是一个版本控制软件，它维护的东西是仓库，在仓库上实现代码、文档修改的记录，回退等功能。</p>
+
+<p>我们以如何将本地的文件上传至远程仓库来讲解基础的Git使用。</p>
+
+<h4 id="1将本地文件上传至github仓库">（1）将本地文件上传至Github仓库</h4>
+
+<ul>
+  <li>在本地打开终端，将当前目录移至需上传的目录</li>
+  <li>通过<code class="highlighter-rouge">git init.</code>创建初始本地仓库</li>
+  <li>通过<code class="highlighter-rouge">git add .</code>将本地需要上传的文件添加至缓冲区，可通过键入具体的文件名实现上传具体的文件至缓冲区</li>
+  <li>通过<code class="highlighter-rouge">git commit -m "commitmessage"</code>将缓冲区的文件上传至本地仓库。其中commitmessage为自己想要为此次提交添加的备注，方便日后查看。</li>
+  <li>接着，我们需要在Github上新建仓库，这个仓库即为远程仓库，并获取到https地址。</li>
+  <li>通过<code class="highlighter-rouge">git remote add origin httpsaddr</code>将本地仓库与远程仓库绑定，其中httpsaddr是远程仓库地址。</li>
+  <li>通过<code class="highlighter-rouge">git push -f origin master</code>将当前分支master推送到远端。其中-f是忽略本地和远程仓库冲突的部分，强制将本地仓库推送至远程仓库。就此，本地文件上传到远程仓库的过程完成。</li>
+</ul>
+
+<h4 id="2创建和合并分支">（2）创建和合并分支</h4>
+
+<p>在实际生产中，每个人都有负责的部分代码，会对代码进行修改。为了实现每个人都可以对代码进行修改且不干扰别人的修改，分支的概念随之产生。通常，master分支我们称为主分支。我们一般从master分之下clone代码，并在自己的分支上进行修改，最后再merge到主分支master分支之上。</p>
+
+<p>总结创建和合并分支的命令：</p>
+
+<ul>
+  <li>查看分支：<code class="highlighter-rouge">git branch</code></li>
+  <li>创建新分支：<code class="highlighter-rouge">git branch newbranchname</code></li>
+  <li>切换分支：<code class="highlighter-rouge">git checkout branch name</code></li>
+  <li>创建+切换分支：<code class="highlighter-rouge">git checkout -b branchname</code></li>
+  <li>删除分支：<code class="highlighter-rouge">git branch -d branchname</code></li>
+  <li>合并分支：<code class="highlighter-rouge">git merge branchname</code></li>
+</ul>
+
+<h2 id="三patch的概念">三、patch的概念</h2>
+
+<h3 id="1应用场景">1、应用场景</h3>
+
+<p>当多人维护一个项目的时候，组员发现一个项目有bug时但又没有提交修改的权限，所以需要将自己所做的修改用diff命令生成一个patch，patch记录了组员所做的修改，组长能更高效的审视组员所做的修改。</p>
+
+<h3 id="2diff命令制作补丁">2、diff命令制作补丁</h3>
+
+<p><code class="highlighter-rouge"> diff [option] oldfile newfile &gt; patchname.patch</code></p>
+
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gbccv32ybbj30xm0bxmy6.jpg" alt="" /></p>
+
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gbcct9luyij30u012t42i.jpg" alt="" /></p>
+
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gbcctg10dqj30u012tq7d.jpg" alt="" /></p>
+
+<p>其余方面可参考这篇csdn博客：blog.csdn.net/youzhouliu/article/details/78952453</p>
+
+<h2 id="四问题记录">四、问题记录</h2>
+
+<ol>
+  <li>
+    <p>将本地仓库连接到远程仓库时提示：git fatal: 远程 origin 已经存在</p>
+
+    <p>是因为git的远程地址配错了，需要先移除现有的origin，再添加上正确的gitpath。</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>git remove rm origin
+git remote add origin correct gitpath
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+</ol>
+
+:ET
