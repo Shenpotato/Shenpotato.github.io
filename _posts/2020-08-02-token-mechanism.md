@@ -143,6 +143,16 @@ Tokens能够创建与其它程序共享权限的程序。例如，能将一个�
 
 
 
+##### 3.4 如何鉴别客户端带过来的Token是正确的？
+
+收到客户端请求里的token后，将该token的第一部分和第二部分再进行一次生成第三部分signature的过程，即将token中的第一部分和第二部分使用`.`连接组成的字符串，再通过header中声明的加密方式进行加盐`secret`组合加密，得到一个signature，将这个signature和token里带的signature进行比对，如果一样，就认证通过。
+
+为什么呢？
+
+因为这个加密key（`secret`）只有服务端才有，只有原始正确的header和payload经过加密key加密，才能得到原始正确的signature；只要header或payload被修改了，那加密后得到的signature就会不一样，即使signature被修改了，也能鉴别出来，因为signature是唯一的。具体可参考：https://docs.microsoft.com/zh-cn/dotnet/api/system.security.cryptography.hmacsha256?redirectedfrom=MSDN&view=netframework-4.8
+
+
+
 ### 二、Springboot整合Shiro
 
 

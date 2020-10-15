@@ -992,20 +992,13 @@ catalog: true
 
    （2）实现Serializable接口，通过对象的序列化和反序列化实现克隆，可以实现真正的深度克隆，代码如下：
 
-   import java.io.ByteArrayInputStream;
-   import java.io.ByteArrayOutputStream;
-   import java.io.ObjectInputStream;
-   import java.io.ObjectOutputStream;
-   import java.io.Serializable;
-   public class MyUtil {
-
    ```java
    import java.io.ByteArrayInputStream;
    import java.io.ByteArrayOutputStream;
    import java.io.ObjectInputStream;
    import java.io.ObjectOutputStream;
    import java.io.Serializable;
-   public class MyUtil {
+public class MyUtil {
        private MyUtil() {
            throw new AssertionError();
        }
@@ -1023,11 +1016,11 @@ catalog: true
    }
    
    ```
-
-   **注意：**基于序列化和反序列化实现的克隆不仅仅是深度克隆，更重要的是通过泛型限定，可以检查出要克隆的对象是否支持序列化，这项检查是编译器完成的，不是在运行时抛出异常，这种是方案明显优于使用Object类的clone方法克隆对象。让问题在编译的时候暴露出来总是好过把问题留到运行时。
-
    
-
+   **注意：**基于序列化和反序列化实现的克隆不仅仅是深度克隆，更重要的是通过泛型限定，可以检查出要克隆的对象是否支持序列化，这项检查是编译器完成的，不是在运行时抛出异常，这种是方案明显优于使用Object类的clone方法克隆对象。让问题在编译的时候暴露出来总是好过把问题留到运行时。
+   
+   
+   
 3. #### 深拷贝和浅拷贝区别是什么？
 
    浅拷贝只是复制了对象的引用地址，两个对象指向同一个内存地址，所以修改其中任意的值，另一个值都会随之变化，这就是浅拷贝（例：assign()）

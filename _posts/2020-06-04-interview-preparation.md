@@ -1,5 +1,5 @@
 ---
-layout: post
+/layout: post
 title: "秋招准备"
 tags: Tools 
 author: Shenpotato
