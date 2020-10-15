@@ -227,3 +227,13 @@ getJoke: function () {
 
 **注意：我们需要定义that指向this，因为在axios中，this指向会发生变化。**
 
+
+
+### 四、Vue的生命周期
+
+Vue一共有10个生命周期函数，我们可以利用这些函数在vue的每个阶段都进行操作数据或者改变内容
+
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gidu5dre4gj30u023zgpr.jpg" style="zoom: 67%;" />
+
+
+
