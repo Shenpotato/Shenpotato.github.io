@@ -34,6 +34,18 @@ catalog: true
 
 以配置整台机子的Git仓库为例。通过`git config --global`设置username以及userpassword等属性，实现与Github相连接。
 
+绑定本地仓库与远程仓库（设备为mac，通过ssh实现连接）：
+
+以mac为例，在本地生成ssh key，并将该ssh key放置于github上的设置中，实现连接
+
+```
+生成方式：
+ssh-keygen -t rsa -C "xxx@xx.com"
+
+mac本地生成的ssh-rsa密钥，存放位置在：
+/Users/shenzhengtao/.ssh/id_rsa.pub
+```
+
 
 
 ### 2、Git的使用
