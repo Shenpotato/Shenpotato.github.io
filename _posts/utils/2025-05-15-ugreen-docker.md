@@ -11,13 +11,11 @@ categories: utils
 
 绿联官方配置的docker源不行，需要重新配置
 
-
-
 1. 在绿联设置中打开允许ssh访问
 
-![image-20250515153616356](../../img/in-post/utils/image-20250515153616356.png)
+![image-20250515153616356](/img/in-post/utils/image-20250515153616356.png)
 
-2. 使用对应的用户名密码通过ssh登陆绿联终端
+1. 使用对应的用户名密码通过ssh登陆绿联终端
 
 ```shell
 ## 登陆
