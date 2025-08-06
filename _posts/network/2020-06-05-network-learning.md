@@ -2,10 +2,10 @@
 layout: post
 title: 网络知识学习
 tags:
-  - Tools
+  - Network
 author: Shenpotato
 catalog: true
-categories: computer_network
+categories: network
 ---
 
 

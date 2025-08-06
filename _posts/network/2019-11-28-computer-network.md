@@ -4,7 +4,7 @@ title: "计算机网络-链路层与网络层传输原理"
 tags: ComputerNetwork
 author: Shenpotato
 catalog: true
-categories: computer_network
+categories: network
 ---
 
 记录实习学习知识
