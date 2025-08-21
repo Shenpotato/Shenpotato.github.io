@@ -2,6 +2,7 @@ _site
 _posts/_draft
 _posts/_archive
 _posts/.obsidian
+_posts/private/
 .obsidian/
 _archive
 node_modules
