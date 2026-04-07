@@ -1,7 +1,7 @@
 ---
-21layout: post
-title: "java内存区域"
-tags: jvm
+title: java内存区域
+tags:
+  - jvm
 author: Shenpotato
 catalog: true
 categories: program_language java

@@ -1,7 +1,9 @@
 ---
 layout: post
-title: "转载-SpringBoot学习笔记"
-tags: SpringBoot Reproduce 
+title: 转载-SpringBoot学习笔记
+tags:
+  - SpringBoot
+  - Reproduce
 author: Shenpotato
 catalog: true
 categories: backend

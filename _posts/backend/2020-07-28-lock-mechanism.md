@@ -15,6 +15,7 @@ categories: backend
 
 
 
+
 synchronized 的不同作用对象：
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gh6kkjga6fj30rl0ga0uw.jpg)
